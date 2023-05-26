@@ -18,9 +18,19 @@ public class CategoryController : ControllerBase
     {
         return _categoryService.AddCategory(_categoryDto);
     }
-    [HttpGet("Update")]
-    public int Update(CategoryDto _categoryDto, int id)
+    [HttpPut("Update")]
+    public int Update(CategoryDto _categoryDto)
     {
-        return _categoryService.UpdateCategory(_categoryDto, id);
+        return _categoryService.UpdateCategory(_categoryDto);
+    }
+    [HttpDelete("Delete")]
+    public int Delete(int id)
+    {
+        return _categoryService.DeleteCategory(id);
+    }
+    [HttpGet("Get All")]
+    public List<CategoryDto> GetAll()
+    {
+        return _categoryService.GetAllCetgories();
     }
 }

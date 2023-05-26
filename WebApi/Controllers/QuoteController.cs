@@ -18,10 +18,24 @@ public class QuoteController : ControllerBase
     {
         return _QuoteService.AddQuote(_QuoteDto);
     }
-    [HttpGet("Update")]
-    public int Update(QuoteDto _QuoteDto, int id)
+    [HttpPut("Update")]
+    public int Update(QuoteDto _QuoteDto)
     {
-        return _QuoteService.UpdateQuote(_QuoteDto, id);
+        return _QuoteService.UpdateQuote(_QuoteDto);
     }
-
+    [HttpDelete("Delete")]
+    public int Delete(int id)
+    {
+        return _QuoteService.DeleteQuote(id);
+    }
+    [HttpGet("Get All")]
+    public List<QuoteDto> GetAll()
+    {
+        return _QuoteService.GetAllQuotes();
+    }
+    [HttpGet("Get Author with number of quotes")]
+    public List<AuthorNumOfQuotesDto> AuthorNumOfQuotes()
+    {
+        return _QuoteService.AuthorNumOfQuotes();
+    }
 }
