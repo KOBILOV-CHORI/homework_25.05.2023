@@ -27,6 +27,8 @@ public class CategoryService
     }
     public int DeleteCategory(int id)
     {
+        string text = "hello";
+       var count =  text.VowelCount();
         using (var conn = new NpgsqlConnection(connString))
         {
             var sql = $"delete from categories where id = {id}";
